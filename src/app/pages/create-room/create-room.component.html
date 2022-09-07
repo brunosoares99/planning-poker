@@ -1,0 +1,13 @@
+<app-wrapper>
+  <app-header></app-header>
+  <div class="w-full h-full flex items-center justify-center">
+    <div class="flex flex-col items-center">
+      <h1>Criar um novo jogo</h1>
+      <h3>Escolha um nome e o tipo de sistema de votação para o seu jogo</h3>
+      <input placeholder="Nome do jogo" type="text">
+      <input placeholder="Sistema de votação" type="text">
+      <app-button (click)="joinRoom()">Criar novo jogo</app-button>
+    </div>
+  </div>
+</app-wrapper>
+
