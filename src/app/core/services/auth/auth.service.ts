@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment'
 })
 export class AuthService {
 	private readonly url: string = environment.url
-	userLogged: { _id: string }
+	userLogged: { _id: string } = {_id: ''}
 	constructor(
     private readonly http: HttpClient
 	) { }
@@ -47,6 +47,7 @@ export class AuthService {
 	}
 
 	isLogged(): boolean {
+		if(this.getUserId()) this.userLogged._id = this.getUserId()
 		return !!this.getToken() && !!this.getUserId()
 	}
 }

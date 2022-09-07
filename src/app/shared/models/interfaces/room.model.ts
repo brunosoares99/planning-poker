@@ -7,4 +7,5 @@ export interface IRoom {
   title:     string
   createdAt: string
   updatedAt: string
+  hasPassword: boolean
 }

@@ -23,8 +23,25 @@ export class RoomService {
 		})
 	}
 
-	getRoom(roomId: string): Observable<unknown> {
-		return this.http.get(`${this.url}/room/${roomId}`)
+	getRoom(roomId: string): Observable<IRoom> {
+		return new Observable((observer) => {
+			this.http.get<IRoomGetRes>(`${this.url}/room/${roomId}`).pipe(take(1)).subscribe({
+				next: ({ room }) => {
+					observer.next(room)
+				}
+			})
+		})
+	}
+
+	joinRoom(roomId: string, password?: string): Observable<any> {
+		return new Observable((observer) => {
+			this.http.post<any>(`${this.url}/room/join/${roomId}`, { password }).pipe(take(1)).subscribe({
+				next: (data) => {
+					console.log(data)
+					observer.next(data)
+				}
+			})
+		})
 	}
 
 }

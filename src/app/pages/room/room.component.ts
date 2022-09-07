@@ -12,7 +12,7 @@ import { TypeUserEnum } from 'src/app/shared/models/enums/typeUser.enum'
 	styleUrls: ['./room.component.scss']
 })
 export class RoomComponent implements OnInit {
-
+	title = ''
 	constructor(
 		private readonly roomService: RoomService,
 		private readonly activatedRoute: ActivatedRoute,
@@ -49,9 +49,13 @@ export class RoomComponent implements OnInit {
 	getRoom(roomId: string) {
 		if(!roomId) return
 		this.roomService.getRoom(roomId).pipe(take(1)).subscribe({
-			next: (data) => {
-				console.log(data)
-				
+			next: ({ title, hasPassword }) => {
+				this.roomService.joinRoom(roomId).pipe(take(1)).subscribe({
+					next: (data)=> {
+						this.title = title
+						console.log(data)
+					}
+				})
 			}
 		})
 	}
