@@ -44,8 +44,7 @@ export class CreateRoomComponent  {
 	createRoom() {
 		const teste = {
 			nickname: 'Brunão',
-			title: 'Minha sala',
-			password: '123',
+			title: 'IUGU'
 		}
 		this.roomService.createRoom(teste).pipe(take(1)).subscribe({
 			next: ({ _id }) => {
