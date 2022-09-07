@@ -17,6 +17,8 @@ import { NameDialogModule } from './shared/components/dialogs/name-dialog/name-d
 import { RoomComponent } from './pages/room/room.component'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { HttpHeaderInterceptorService } from './core/config/http-header-interceptor/http-header-interceptor.service'
+import { NotFoundComponent } from './pages/not-found/not-found.component'
+import { LoginComponent } from './pages/login/login.component'
 
 @NgModule({
 	declarations: [
@@ -24,6 +26,8 @@ import { HttpHeaderInterceptorService } from './core/config/http-header-intercep
 		HomeComponent,
 		CreateRoomComponent,
 		RoomComponent,
+		NotFoundComponent,
+		LoginComponent,
 	],
 	imports: [
 		BrowserModule,
